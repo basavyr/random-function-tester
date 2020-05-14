@@ -36,8 +36,8 @@ int generate_int(int left, int right)
 
 void generate_rectangles()
 {
-    const int length = generate_int(1, 10);
-    const int width = generate_int(1, 15);
+    int length = generate_int(1, 10);
+    int width = generate_int(1, 15);
     auto x = std::make_unique<geometry::Rectangle>(length, width);
 }
 
@@ -92,5 +92,10 @@ void user_test()
 
 int main()
 {
+    auto start = std::chrono::high_resolution_clock::now();
     random_test();
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+    std::cout << "Geometry testing finished after " << static_cast<double>(duration / 1000.0) << " s";
+    newline();
 }
