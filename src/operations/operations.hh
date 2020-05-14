@@ -1,0 +1,4 @@
+#ifndef OPERATIONS_HH
+#define OPERATIONS_HH
+
+#endif // OPERATIONS_HH

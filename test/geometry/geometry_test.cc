@@ -27,8 +27,9 @@ T give_random(T left, T right)
 
 int generate_int(int left, int right)
 {
-    // use a random device for introducing entropy in the random number generator
+    // uses a random device for introducing entropy in the random number generator
     std::random_device rd;
+    //generates a random number between left and right, using a uniform probability distribution, with a seed of Mersenne type;
     std::uniform_int_distribution int_dist(left, right);
     auto intn = static_cast<int>(int_dist(rd));
     return intn;
