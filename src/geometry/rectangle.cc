@@ -12,7 +12,8 @@ geometry::Rectangle::~Rectangle()
     const double A = geometry::Area::rectangle(length, width);
     //perimeter of the figure
     const double P = geometry::Perimeter::rectangle(length, width);
-    std::cout << "The rectangle: ";
+    std::cout << "The rectangle has: ";
+    std::cout << "\n";
     std::cout << "A= " << A;
     std::cout << "\n";
     std::cout << "P= " << P;
