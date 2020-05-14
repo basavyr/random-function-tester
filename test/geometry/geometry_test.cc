@@ -1,0 +1,6 @@
+#include "../../src/geometry/area.hh"
+#include "../../src/geometry/perimeter.hh"
+#include "../../src/geometry/rectangle.hh"
+#include "../../src/geometry/triangle.hh"
+#include "../../src/geometry/square.hh"
+#include "../../src/geometry/polygon.hh"
