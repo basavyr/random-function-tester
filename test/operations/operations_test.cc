@@ -1,4 +1,4 @@
-#include "../../src/operations/trig.hh"
+#include "operations.hh"
 
 #include <iostream>
 

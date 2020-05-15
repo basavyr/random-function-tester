@@ -3,6 +3,9 @@
 
 #include <vector>
 #include <random>
+#include "sqrt.hh"
+#include "trig.hh"
+#include "add.hh"
 
 namespace operations
 {
@@ -13,7 +16,12 @@ namespace operations
         double trig_picker;
 
     public:
-        Operations();
+        static double RandomReal(double);
+        static int RandomInt(int);
+        static std::vector<double> RandomRealArrays(size_t);
+
+    public:
+        Operations(size_t);
         ~Operations();
 
     public:
