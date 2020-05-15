@@ -1,4 +1,4 @@
-#include "operations.hh"
+#include "../../src/operations/operations.hh"
 
 #include <iostream>
 
@@ -47,8 +47,28 @@ void generateTrigTest(uint32_t n_tests)
               << "\n";
 }
 
+void generateOperationsTest(uint32_t n_tests)
+{
+    auto start = std::chrono::high_resolution_clock::now();
+    std::cout << "Testing started...";
+    std::cout << "\n";
+    // for (int id = 0; id < n_tests; ++id)
+    // {
+    //     std::cout << "******** TEST " << id << " ********"
+    //               << "\n";
+    //     std::cout << "\n";
+    // }
+    auto x = std::make_unique<operations::Operations>(n_tests);
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+    std::cout << "The testing finished succsessfully after " << static_cast<double>(duration / 1000000.0) << " s"
+              << "\n";
+    std::cout << "N= " << n_tests << " were executed..."
+              << "\n";
+}
+
 int main()
 {
-    auto n_tests = GiveRandomNumber(10000);
-    generateTrigTest(n_tests);
+    auto n_tests = GiveRandomNumber(10);
+    generateOperationsTest(100);
 }
