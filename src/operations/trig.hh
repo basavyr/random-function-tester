@@ -2,6 +2,12 @@
 #define TRIG_HH
 
 #include <iostream>
+#include <random>
+#include <cassert>
+#include <limits>
+#include <cmath>
+#include <vector>
+#include <cstring>
 namespace operations
 {
 
@@ -9,7 +15,9 @@ namespace operations
     {
     private:
         double result;
+        double arg_copy;
 
+    public:
         enum Functions
         {
             SIN,
@@ -19,15 +27,25 @@ namespace operations
             ASIN,
             ACOS,
             ATAN,
-            ARCTAN
+            ARCTAN,
+            MAXENUM //safety mechanism for keeping track of the number of trigonometric implementations
+            //just a trick!
         };
+
+    private:
+        static Functions trigfunction;
+        Functions chosen_function;
 
     public:
         Trig(double);
         ~Trig();
 
     public:
-        static void showResult(double &);
+        static double computeTrigFunction(Functions, double);
+        static std::vector<double> computeTrigArray(std::vector<double> &);
+        static void showResult(Functions &, double &, double &);
+        static std::string functionName(Functions &);
+        Functions generateRandomTrigFunction();
     };
 
 } //namespace operations

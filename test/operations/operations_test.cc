@@ -2,66 +2,53 @@
 
 #include <iostream>
 
-inline void newline() { std::cout << "\n"; }
+std::random_device test_rd;
+static std::mt19937 test_engine{test_rd()};
 
-enum Functions
+//generate random number in a predefined interval
+int GiveRandomNumber(int right)
 {
-    SIN,
-    COS,
-    TAN,
-    CTAN,
-    ASIN,
-    ACOS,
-    ATAN,
-    ARCTAN
-};
+    std::uniform_int_distribution<int> dist(0, right);
+    auto num = dist(test_engine);
+    return num;
+}
 
-void choose_function(Functions f)
+double GiveRandomReal(double right)
 {
-    switch (f)
+    std::uniform_real_distribution<double> rdist(0, right);
+    auto rnum = rdist(test_engine);
+    return rnum;
+}
+
+static const double pi = 3.141592654;
+
+void generate_random_tests()
+{
+    auto x = std::make_unique<operations::Trig>(GiveRandomReal(pi));
+}
+
+void generateTrigTest(uint32_t n_tests)
+{
+    auto start = std::chrono::high_resolution_clock::now();
+    std::cout << "Testing started...";
+    std::cout << "\n";
+    for (int id = 0; id < n_tests; ++id)
     {
-    case COS:
-        std::cout << "cosine";
-        newline();
-        break;
-    case SIN:
-        std::cout << "sine";
-        newline();
-        break;
-    case TAN:
-        std::cout << "tangent";
-        newline();
-        break;
-    case ATAN:
-        std::cout << "arctangent";
-        newline();
-        break;
-    case CTAN:
-        std::cout << "cotangent";
-        newline();
-        break;
-    case ASIN:
-        std::cout << "arcsine";
-        newline();
-        break;
-    case ACOS:
-        std::cout << "arccos";
-        newline();
-        break;
-    case ARCTAN:
-        std::cout << "arccotangent";
-        newline();
-        break;
-
-    default:
-        break;
+        std::cout << "******** TEST " << id << " ********"
+                  << "\n";
+        generate_random_tests();
+        std::cout << "\n";
     }
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+    std::cout << "The testing finished succsessfully after " << static_cast<double>(duration / 1000000.0) << " s"
+              << "\n";
+    std::cout << "N= " << n_tests << " were executed..."
+              << "\n";
 }
 
 int main()
 {
-    Functions f;
-    
-    f = static_cast<Functions>(five);
-    std::cout << f;
+    auto n_tests = GiveRandomNumber(10000);
+    generateTrigTest(n_tests);
 }

@@ -64,6 +64,7 @@
         "utility": "cpp",
         "vector": "cpp",
         "random": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "__functional_03": "cpp"
     }
 }
