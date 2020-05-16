@@ -9,10 +9,10 @@ namespace geometry
     class Polygon
     {
     private:
-        std::vector<double> sides;
+        std::vector<int> sides;
 
     public:
-        Polygon(std::vector<double> &sides);
+        Polygon(std::vector<int> &sides);
         ~Polygon();
     };
 } // namespace geometry

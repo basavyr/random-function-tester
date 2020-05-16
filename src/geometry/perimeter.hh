@@ -19,11 +19,11 @@ namespace geometry
         //calculates the perimeter of a triangle with user-defined sides
         static double triangle(double a, double b, double c);
         //calculates the perimeter of a polygon with user-defined N-sides
-        static double polygon(std::vector<double> &sides);
+        static double polygon(std::vector<int> &sides);
 
     public:
         static void showResult(double &result);
-        Perimeter(std::vector<double> &sides);
+        Perimeter(std::vector<int> &sides);
         ~Perimeter();
     };
 } //namespace geometry

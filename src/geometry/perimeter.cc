@@ -22,7 +22,7 @@ double geometry::Perimeter::rectangle(double length, double width)
 }
 
 //calculates the perimeter of a polygon with user-defined N-sides
-double geometry::Perimeter::polygon(std::vector<double> &sides)
+double geometry::Perimeter::polygon(std::vector<int> &sides)
 {
     size_t Nsides = sides.size();
     double P = 0.0;
@@ -36,7 +36,7 @@ double geometry::Perimeter::polygon(std::vector<double> &sides)
             std::cout << "The polygon is not a valid geometric figure!";
             std::cout << "\n";
         }
-        P += static_cast<double>(sides.at(l));
+        P += static_cast<int>(sides.at(l));
     }
     if (!geom_checker)
         return 0;
@@ -44,7 +44,7 @@ double geometry::Perimeter::polygon(std::vector<double> &sides)
 }
 
 //class constructor (makes a polygon with user-defined sides and automatically stores the resulting perimeter in the private variable, for later output)
-geometry::Perimeter::Perimeter(std::vector<double> &sides)
+geometry::Perimeter::Perimeter(std::vector<int> &sides)
 {
     perimeter = polygon(sides);
 }

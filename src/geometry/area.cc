@@ -32,6 +32,11 @@ double geometry::Area::triangle(double a, double b, double c)
     return static_cast<double>(area);
 }
 
+double geometry::Area::polygon(std::vector<int> &sides)
+{
+    return 1;
+}
+
 void geometry::Area::showResult(double &area)
 {
     auto errMsg = "Area calculation failed. Status: ";

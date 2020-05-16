@@ -18,7 +18,7 @@ geometry::Shapes::~Shapes()
 template <typename T>
 T generateRandomNumber()
 {
-    std::uniform_real_distribution<T> T_dist(0, 100);
+    std::uniform_real_distribution<double> T_dist(min_size, max_size);
     auto rnum = static_cast<T>(T_dist(twister));
     return rnum;
 }
@@ -26,7 +26,8 @@ T generateRandomNumber()
 template <typename T>
 void generateArray(std::vector<T> &v)
 {
-    for (auto id = 0; id < 10; ++id)
+    const size_t arr_size = generateRandomNumber<size_t>();
+    for (auto id = 0; id < arr_size; ++id)
     {
         auto r_num = generateRandomNumber<T>();
         v.emplace_back(r_num);
@@ -76,15 +77,14 @@ void geometry::Shapes::Shape_Geometry()
 
 void geometry::Shapes::Do_Geometry(geometry::Shapes::Shape shape, geometry::Shapes::shape_info &info)
 {
-    double area, perimeter;
     switch (shape)
     {
     case Shapes::Shape::RECTANGLE:
     {
         auto length = RandomInt(min_size, max_size);
         auto width = RandomInt(min_size, max_size);
-        area = geometry::Area::rectangle(length, width);
-        perimeter = geometry::Perimeter::rectangle(length, width);
+        auto area = geometry::Area::rectangle(length, width);
+        auto perimeter = geometry::Perimeter::rectangle(length, width);
         info.area = area;
         info.perimeter = perimeter;
         info.sides.emplace_back(length);
@@ -96,8 +96,8 @@ void geometry::Shapes::Do_Geometry(geometry::Shapes::Shape shape, geometry::Shap
     case Shapes::Shape::SQUARE:
     {
         auto side = RandomInt(min_size, max_size);
-        area = geometry::Area::square(side);
-        perimeter = geometry::Perimeter::square(side);
+        auto area = geometry::Area::square(side);
+        auto perimeter = geometry::Perimeter::square(side);
         info.area = area;
         info.perimeter = perimeter;
         info.sides.emplace_back(side);
@@ -111,8 +111,8 @@ void geometry::Shapes::Do_Geometry(geometry::Shapes::Shape shape, geometry::Shap
         auto a = RandomInt(min_size, max_size);
         auto b = RandomInt(min_size, max_size);
         auto c = RandomInt(min_size, max_size);
-        area = geometry::Area::triangle(a, b, c);
-        perimeter = geometry::Perimeter::triangle(a, b, c);
+        auto area = geometry::Area::triangle(a, b, c);
+        auto perimeter = geometry::Perimeter::triangle(a, b, c);
         info.area = area;
         info.perimeter = perimeter;
         info.sides.emplace_back(a);
@@ -125,14 +125,16 @@ void geometry::Shapes::Do_Geometry(geometry::Shapes::Shape shape, geometry::Shap
     case Shapes::Shape::POLYGON:
     {
         std::vector<int> sides;
-        const int size = 10;
+        const int size = RandomInt(min_size, max_size);
         generateArray<int>(sides);
         printArray<int>(sides);
-        //     info.area = area;
-        //     info.perimeter = perimeter;
-        //     info.sides.emplace_back(length);
-        //     info.sides.emplace_back(width);
-        //     info.what_shape = Shape::POLYGON;
+        auto area = geometry::Area::polygon(sides);
+        auto perimeter = geometry::Perimeter::polygon(sides);
+        info.area = area;
+        info.perimeter = perimeter;
+        // info.sides.emplace_back(length);
+        // info.sides.emplace_back(width);
+        info.what_shape = Shape::POLYGON;
         break;
     }
     }

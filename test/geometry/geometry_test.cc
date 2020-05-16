@@ -105,15 +105,22 @@ void shape_test()
 
 int main()
 {
-    int nreps = 1;
+    // static constexpr int nreps = 1000;
+    int nreps = 1000;
     std::cout << "Number of geometry tests to be performed: "
               << "\n";
     // std::cin >> nreps;
     auto start = std::chrono::high_resolution_clock::now();
     for (nreps; nreps; nreps--)
+    {
+        std::cout << "********* "
+                  << "TEST " << nreps << " *********";
+        std::cout << "\n";
         shape_test();
+        std::cout << "\n";
+    }
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-    std::cout << "Geometry testing finished after " << static_cast<double>(duration / 1000.0) << " s";
+    std::cout << "Geometry testing finished after " << static_cast<double>(duration / 1000.0) << " ms";
     newline();
 }

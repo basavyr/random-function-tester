@@ -25,7 +25,7 @@ namespace geometry
         static double rectangle(double length, double width);
 
         //calculates the area of a polygon with user-defined N-sides
-        static double polygon(std::vector<double> &sides);
+        static double polygon(std::vector<int> &sides);
 
         //shows the area of the figure
         static void showResult(double &area);
