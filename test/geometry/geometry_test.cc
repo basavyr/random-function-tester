@@ -6,6 +6,7 @@
 #include "../../src/geometry/triangle.hh"
 #include "../../src/geometry/square.hh"
 #include "../../src/geometry/polygon.hh"
+#include "../../src/geometry/shapes.hh"
 
 #include <random>
 
@@ -14,24 +15,22 @@ inline void newline()
     std::cout << "\n";
 }
 
+std::random_device test_rd;
+static std::mt19937 test_engine{test_rd()};
+
 template <typename T>
 T give_random(T left, T right)
 {
-    // use a random device for introducing entropy in the random number generator
-    std::random_device rd;
     std::uniform_real_distribution<T> dist(left, right);
     //random number for return value
-    auto rn = dist(rd);
+    auto rn = dist(test_engine);
     return static_cast<T>(rn);
 }
 
 int generate_int(int left, int right)
 {
-    // uses a random device for introducing entropy in the random number generator
-    std::random_device rd;
-    //generates a random number between left and right, using a uniform probability distribution, with a seed of Mersenne type;
     std::uniform_int_distribution<int> int_dist(left, right);
-    auto intn = static_cast<int>(int_dist(rd));
+    auto intn = static_cast<int>(int_dist(test_engine));
     return intn;
 }
 
@@ -91,12 +90,30 @@ void user_test()
     }
 }
 
-//int main()
-//{
-//    auto start = std::chrono::high_resolution_clock::now();
-//    random_test();
-//    auto end = std::chrono::high_resolution_clock::now();
-//    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-//    std::cout << "Geometry testing finished after " << static_cast<double>(duration / 1000.0) << " s";
-//    newline();
-//}
+enum test
+{
+    item1,
+    item2,
+    item3,
+    item4
+};
+
+void shape_test()
+{
+    auto x = std::make_unique<geometry::Shapes>();
+}
+
+int main()
+{
+    int nreps = 1;
+    std::cout << "Number of geometry tests to be performed: "
+              << "\n";
+    // std::cin >> nreps;
+    auto start = std::chrono::high_resolution_clock::now();
+    for (nreps; nreps; nreps--)
+        shape_test();
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+    std::cout << "Geometry testing finished after " << static_cast<double>(duration / 1000.0) << " s";
+    newline();
+}
