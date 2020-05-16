@@ -6,7 +6,8 @@
 #include "sqrt.hh"
 #include "trig.hh"
 #include "add.hh"
-
+#include <ctime>
+#include <chrono>
 namespace operations
 {
     class Operations
@@ -14,11 +15,15 @@ namespace operations
     private:
         double result;
         double trig_picker;
+        double duration;
+        std::chrono::time_point<std::chrono::high_resolution_clock> start;
 
     public:
-        static double RandomReal(double);
+        static double
+        RandomReal(double);
         static int RandomInt(int);
         static std::vector<double> RandomRealArrays(size_t);
+        void stopTimer();
 
     public:
         Operations(size_t);

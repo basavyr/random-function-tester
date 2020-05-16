@@ -52,13 +52,13 @@ void generateOperationsTest(uint32_t n_tests)
     auto start = std::chrono::high_resolution_clock::now();
     std::cout << "Testing started...";
     std::cout << "\n";
-    // for (int id = 0; id < n_tests; ++id)
-    // {
-    //     std::cout << "******** TEST " << id << " ********"
-    //               << "\n";
-    //     std::cout << "\n";
-    // }
-    auto x = std::make_unique<operations::Operations>(n_tests);
+    for (int id = 0; id < n_tests; ++id)
+    {
+        std::cout << "******** TEST " << id << " ********"
+                  << "\n";
+        auto x = std::make_unique<operations::Operations>(n_tests);
+        std::cout << "\n";
+    }
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
     std::cout << "The testing finished succsessfully after " << static_cast<double>(duration / 1000000.0) << " s"
@@ -70,5 +70,5 @@ void generateOperationsTest(uint32_t n_tests)
 int main()
 {
     auto n_tests = GiveRandomNumber(10);
-    generateOperationsTest(100);
+    generateOperationsTest(1000);
 }

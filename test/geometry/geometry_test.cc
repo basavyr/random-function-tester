@@ -30,7 +30,7 @@ int generate_int(int left, int right)
     // uses a random device for introducing entropy in the random number generator
     std::random_device rd;
     //generates a random number between left and right, using a uniform probability distribution, with a seed of Mersenne type;
-    std::uniform_int_distribution int_dist(left, right);
+    std::uniform_int_distribution<int> int_dist(left, right);
     auto intn = static_cast<int>(int_dist(rd));
     return intn;
 }
@@ -91,12 +91,12 @@ void user_test()
     }
 }
 
-int main()
-{
-    auto start = std::chrono::high_resolution_clock::now();
-    random_test();
-    auto end = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-    std::cout << "Geometry testing finished after " << static_cast<double>(duration / 1000.0) << " s";
-    newline();
-}
+//int main()
+//{
+//    auto start = std::chrono::high_resolution_clock::now();
+//    random_test();
+//    auto end = std::chrono::high_resolution_clock::now();
+//    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+//    std::cout << "Geometry testing finished after " << static_cast<double>(duration / 1000.0) << " s";
+//    newline();
+//}

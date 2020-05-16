@@ -6,40 +6,47 @@ static constexpr double REAL_LIMIT = static_cast<double>(6969);
 
 operations::Operations::Operations(size_t n_ops)
 {
+    start = std::chrono::high_resolution_clock::now();
+
     double unique_x;
     double pair_x, pair_y;
     double triplet_x, triplet_y, triplet_z;
     int arr_size = 10000;
     std::vector<double> arr1;
     std::vector<double> arr2;
-    //add
-    for (auto op = 0; op < n_ops; ++op)
-    {
-        unique_x = RandomReal(REAL_LIMIT);
-        pair_x = RandomReal(REAL_LIMIT);
-        pair_y = RandomReal(REAL_LIMIT);
-        triplet_x = RandomReal(REAL_LIMIT);
-        triplet_y = RandomReal(REAL_LIMIT);
-        triplet_z = RandomReal(REAL_LIMIT);
-        arr1 = RandomRealArrays(arr_size);
-        arr2 = RandomRealArrays(arr_size);
-        // auto addpair=Add_Pair(pair_x,pair_y);
-    }
+    unique_x = RandomReal(REAL_LIMIT);
+    pair_x = RandomReal(REAL_LIMIT);
+    pair_y = RandomReal(REAL_LIMIT);
+    triplet_x = RandomReal(REAL_LIMIT);
+    triplet_y = RandomReal(REAL_LIMIT);
+    triplet_z = RandomReal(REAL_LIMIT);
+    arr1 = RandomRealArrays(arr_size);
+    arr2 = RandomRealArrays(arr_size);
+    // auto addpair=Add_Pair(pair_x,pair_y);
 }
 
 operations::Operations::~Operations()
 {
-    std::cout << "ok";
-    std::cout << "\n";
+    stopTimer();
+}
+
+void operations::Operations::stopTimer()
+{
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto startime = std::chrono::time_point_cast<std::chrono::microseconds>(start).time_since_epoch().count();
+    auto stoptime = std::chrono::time_point_cast<std::chrono::microseconds>(stop).time_since_epoch().count();
+    // return static_cast<double>(stoptime - startime);
+    std::cout << "Operation class took: " << static_cast<double>(duration * 0.001) << " ms"
+              << "\n";
 }
 
 std::vector<double> operations::Operations::RandomRealArrays(size_t arr_size)
 {
-    auto max_num = RandomReal(RandomReal(RandomReal(REAL_LIMIT)));
+    auto max_num = RandomReal(REAL_LIMIT);
     std::vector<double> results;
     for (auto id = 0; id < arr_size; ++id)
     {
-        results.emplace_back(RandomReal(RandomReal(RandomReal(max_num))));
+        results.emplace_back(RandomReal(max_num));
     }
     return results;
 }
