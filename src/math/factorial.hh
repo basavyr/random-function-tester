@@ -3,27 +3,23 @@
 
 #include <cmath>
 #include <vector>
+#include <iostream>
+
+#include "gamma.hh"
 namespace math
 {
-    class Gamma
+    class Factorial
     {
     private:
-        double result;
+        double fact;
 
     public:
-        Gamma();
-        ~Gamma();
+        Factorial(double);
+        ~Factorial();
 
     public:
-        template <typename T>
-        static T fgamma(T arg);
-        {
-            if (isnan(arg))
-                return static_cast<T>(0);
-            auto fg = gamma(arg);
-            return static_cast<T>(fg);
-        }
-        static double gamma_real(std::vector<double> &vargs)
+        static int fact_function(int arg);
+        static double fact_stirling(int arg);
     };
 } // namespace math
 

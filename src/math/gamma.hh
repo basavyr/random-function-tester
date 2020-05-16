@@ -26,8 +26,7 @@ namespace math
             auto fg = gamma(arg);
             return static_cast<T>(fg);
         }
-        
-    };
+        };
 } // namespace math
 
 #endif // GAMMA_HH
