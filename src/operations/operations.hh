@@ -15,7 +15,6 @@ namespace operations
     private:
         double result;
         double trig_picker;
-        double duration;
         std::chrono::time_point<std::chrono::high_resolution_clock> start;
 
     public:
@@ -24,6 +23,7 @@ namespace operations
         static int RandomInt(int);
         static std::vector<double> RandomRealArrays(size_t);
         void stopTimer();
+        static void printArray(std::vector<double> &);
 
     public:
         Operations(size_t);
