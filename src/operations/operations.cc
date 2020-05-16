@@ -65,6 +65,56 @@ int operations::Operations::RandomInt(int l)
     return i_num;
 }
 
+double operations::Operations::Add_Pair(double x, double y)
+{
+    auto adder = Add::pair(x, y);
+    return static_cast<double>(adder);
+}
+
+double operations::Operations::Add_Triplet(double x, double y, double z)
+{
+    auto adder = Add::triplet(x, y, z);
+    return static_cast<double>(adder);
+}
+
+std::vector<double> operations::Operations::Add_Arrays(std::vector<double> &v1, std::vector<double> &v2)
+{
+    std::vector<double> results = Add::arrays(v1, v2);
+    return results;
+}
+
+double operations::Operations::Sqrt_Number(double x)
+{
+    auto sq_res = Sqrt::number(x);
+    return static_cast<double>(sq_res);
+}
+
+double operations::Operations::Sqrt_Pair(double x, double y)
+{
+    auto sq_res = Sqrt::pair(x, y);
+    return static_cast<double>(sq_res);
+}
+
+std::vector<double> operations::Operations::Sqrt_Array(std::vector<double> &v)
+{
+    std::vector<double> results = Sqrt::array(v);
+    return results;
+}
+
+double operations::Operations::Trig_Number(double x)
+{
+    auto trig_fct = Trig::generateRandomTrigFunction();
+    auto tr_res = Trig::computeTrigFunction(trig_fct, x);
+    return static_cast<double>(tr_res);
+}
+
+std::vector<double> operations::Operations::Trig_Array(std::vector<double> &v)
+{
+    auto trig_fct = Trig::generateRandomTrigFunction();
+    auto results = Trig::computeTrigArray(trig_fct, v);
+    return results;
+}
+
 void operations::Operations::showResult(double &result)
 {
     std::cout << result;

@@ -42,10 +42,10 @@ namespace operations
 
     public:
         static double computeTrigFunction(Functions, double);
-        static std::vector<double> computeTrigArray(std::vector<double> &);
+        static std::vector<double> computeTrigArray(Functions, std::vector<double> &);
         static void showResult(Functions &, double &, double &);
         static std::string functionName(Functions &);
-        Functions generateRandomTrigFunction();
+        static Functions generateRandomTrigFunction();
     };
 
 } //namespace operations

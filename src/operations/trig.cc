@@ -55,6 +55,18 @@ double operations::Trig::computeTrigFunction(Functions f, double arg)
     return fx;
 }
 
+std::vector<double> operations::Trig::computeTrigArray(Functions f, std::vector<double> &v)
+{
+    // auto f = generateRandomTrigFunction();
+    std::vector<double> results;
+    for (auto id = 0; id < v.size(); ++id)
+    {
+        auto arg = v.at(id);
+        results.emplace_back(computeTrigFunction(f, arg));
+    }
+    return results;
+}
+
 std::string operations::Trig::functionName(Functions &f)
 {
     std::string fName;
