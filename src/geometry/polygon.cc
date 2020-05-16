@@ -1,6 +1,6 @@
 #include "polygon.hh"
 
-geometry::Polygon::Polygon(std::vector<double> &ls)
+geometry::Polygon::Polygon(std::vector<int> &ls)
 {
     // sides = std::move(ls);
 }
