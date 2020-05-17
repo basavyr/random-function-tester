@@ -51,5 +51,10 @@ int main()
 {
     // test_app();
     // test_derivative();
-    test_mathclass();
+    int n_tests = 1;
+    for (auto it = 0; it < n_tests; ++it)
+    {
+        test_mathclass();
+        std::cout << "\n";
+    }
 }

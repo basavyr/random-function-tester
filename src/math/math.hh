@@ -7,6 +7,8 @@
 #include "factorial.hh"
 #include "derivative.hh"
 #include "gamma.hh"
+#include <thread>
+#include <random>
 
 namespace math
 {
