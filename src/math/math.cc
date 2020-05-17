@@ -3,7 +3,7 @@
 std::random_device math_rd;
 static std::mt19937 math_rng{math_rd()};
 
-static constexpr size_t ARR_SIZE = 100;
+static constexpr size_t ARR_SIZE = 100000;
 static constexpr double max_num = 150;
 
 double generate_integer(int right)
@@ -30,7 +30,13 @@ std::chrono::seconds generate_sleep_time(int secs)
 
 math::Math::Math()
 {
+    std::cout << "In math implementation...";
+    std::cout << "\n";
     start_time = std::chrono::high_resolution_clock::now();
+    test_integration();
+    test_factorial();
+    test_gamma();
+    test_derivative();
 }
 
 math::Math::~Math()
@@ -49,8 +55,8 @@ math::Math::~Math()
 
 inline void show(const std::string &s)
 {
-    std::cout << s;
-    std::cout << "\n";
+    // std::cout << s;
+    // std::cout << "\n";
 }
 
 double math::Math::special_math_function(double arg)

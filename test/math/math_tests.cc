@@ -51,9 +51,12 @@ int main()
 {
     // test_app();
     // test_derivative();
-    int n_tests = 1;
+    int n_tests = 1000;
     for (auto it = 0; it < n_tests; ++it)
     {
+        std::cout << "********* "
+                  << "TEST" << it << " *********"
+                  << "\n";
         test_mathclass();
         std::cout << "\n";
     }
