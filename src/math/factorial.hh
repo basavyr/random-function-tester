@@ -1,5 +1,5 @@
-#ifndef GAMMA_HH
-#define GAMMA_HH
+#ifndef FACTORIAL_HH
+#define FACTORIAL_HH
 
 #include <cmath>
 #include <vector>
@@ -36,4 +36,4 @@ namespace math
     }; // namespace math
 } // namespace math
 
-#endif // GAMMA_HH
+#endif // FACTORIAL_HH

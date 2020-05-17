@@ -1,5 +1,5 @@
 #include "factorial.hh"
-#include "gamma.hh"
+// #include "gamma.hh"
 
 math::Factorial::Factorial(int arg)
 {
@@ -19,10 +19,9 @@ math::Factorial::~Factorial()
 
 int math::Factorial::fact_function(int arg)
 {
-    int fx;
-    fx = 1;
-    return fx;
-    // auto x = math::Gamma::fgamma<int>(arg);
+    int farg;
+    farg = math::Gamma::fgamma<int>(arg + 1);
+    return static_cast<int>(farg);
 }
 
 double math::Factorial::fact_stirling(int arg)

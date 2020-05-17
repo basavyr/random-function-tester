@@ -10,6 +10,7 @@ math::Gamma::~Gamma()
     std::cout << "Gamma calculation finished successfully";
 }
 
+
 std::vector<double> math::Gamma::array(std::vector<double> &vargs)
 {
     std::vector<double> results;

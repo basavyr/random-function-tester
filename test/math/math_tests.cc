@@ -2,6 +2,7 @@
 #include <vector>
 
 #include "../../src/math/derivative.hh"
+#include "../../src/math/math.hh"
 
 template <typename T>
 void printArray(T &array)
@@ -41,8 +42,14 @@ void test_derivative()
     std::cout << "\n";
 }
 
+void test_mathclass()
+{
+    auto x = std::make_unique<math::Math>();
+}
+
 int main()
 {
     // test_app();
-    test_derivative();
+    // test_derivative();
+    test_mathclass();
 }
