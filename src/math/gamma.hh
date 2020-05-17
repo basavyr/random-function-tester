@@ -23,10 +23,10 @@ namespace math
         {
             if (isnan(arg))
                 return static_cast<T>(0);
-            auto fg = gamma(arg);
+            auto fg = tgamma(arg);
             return static_cast<T>(fg);
         }
-        };
+    };
 } // namespace math
 
 #endif // GAMMA_HH

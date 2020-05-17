@@ -12,15 +12,28 @@ namespace math
     {
     private:
         double fact;
+        static constexpr double pi = 3.14159265358979;
+        static constexpr double ee = 2.71828182845905;
 
     public:
-        Factorial(double);
+        Factorial(int);
         ~Factorial();
+
+    public:
+        struct Results
+        {
+            uint64_t fact_;
+            double strirling;
+            uint8_t arg_copy;
+        };
+
+    private:
+        Results fact_res;
 
     public:
         static int fact_function(int arg);
         static double fact_stirling(int arg);
-    };
+    }; // namespace math
 } // namespace math
 
 #endif // GAMMA_HH
