@@ -21,8 +21,17 @@ namespace math
         Math();
         ~Math();
 
+        //testing functions
     public:
-        void Timer();
+        static void test_factorial();
+        static void test_gamma();
+        static void test_integration();
+        static void test_derivative();
+        static double special_math_function(double);
+
+    public:
+        void
+        Timer();
         static double Number_Eval();
         template <typename T>
         static std::vector<T> Vector_Eval()

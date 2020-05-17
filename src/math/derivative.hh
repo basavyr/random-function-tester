@@ -29,6 +29,8 @@ namespace math
     public:
         static double Differentiate_Real(double (*)(double), double);
 
+        static double Random_Real();
+
         static std::vector<double> Differentiate_Array(std::vector<DataSet> &vdiff);
 
         static std::vector<DataSet> generateFunctionArray(double (*)(double));

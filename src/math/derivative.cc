@@ -5,7 +5,7 @@ static std::mt19937 twister{rd()};
 
 static constexpr double max_right = 180;
 
-double Random_Real()
+double math::Derivative::Random_Real()
 {
     std::uniform_real_distribution<double> r_dist(0, max_right);
     auto r_num = static_cast<double>(r_dist(twister));
