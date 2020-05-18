@@ -1,1 +1,2 @@
-add_executable(operations operations_test.cc)
+add_executable(operations_test operations_test.cc)
+target_link_libraries(operations_test LINK_PUBLIC operations)

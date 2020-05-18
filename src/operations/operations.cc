@@ -66,7 +66,7 @@ void operations::Operations::stopTimer()
     auto stoptime = std::chrono::time_point_cast<std::chrono::microseconds>(stop).time_since_epoch().count();
     // return static_cast<double>(stoptime - startime);
     auto duration_ms = static_cast<double>(stoptime - startime) * 0.001;
-    // std::cout << "Operation class took: " << duration_ms << " ms"<< "\n";
+    std::cout << "Operation class took: " << duration_ms << " ms"<< "\n";
 }
 
 std::vector<double> operations::Operations::RandomRealArrays(size_t arr_size)

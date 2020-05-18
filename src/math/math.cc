@@ -70,15 +70,15 @@ void math::Math::test_factorial()
     const std::string stop_msg = "Testing factorial implementation finished succsessfully...";
     std::vector<math::Factorial::Results> fact_res;
     show(start_msg);
-    // for (int id = 0; id < ARR_SIZE; ++id)
-    // {
-    //     // auto r_int = static_cast<int>(math::Derivative::Random_Real());
-    //     auto r_int = generate_integer(10);
-    //     fact_res.emplace_back(math::Factorial::Results());
-    //     fact_res.at(id).fact_ = math::Factorial::fact_function(r_int);
-    //     fact_res.at(id).strirling = math::Factorial::fact_stirling(r_int);
-    //     fact_res.at(id).arg_copy = r_int;
-    // }
+    for (int id = 0; id < ARR_SIZE; ++id)
+    {
+        // auto r_int = static_cast<int>(math::Derivative::Random_Real());
+        auto r_int = generate_integer(10);
+        fact_res.emplace_back(math::Factorial::Results());
+        fact_res.at(id).fact_ = math::Factorial::fact_function(r_int);
+        fact_res.at(id).strirling = math::Factorial::fact_stirling(r_int);
+        fact_res.at(id).arg_copy = r_int;
+    }
     show(stop_msg);
 }
 
@@ -88,13 +88,13 @@ void math::Math::test_gamma()
     const std::string stop_msg = "Testing gamma implementation finished succsessfully...";
     std::vector<double> gm_v;
     show(start_msg);
-    // for (auto id = 0; id < ARR_SIZE; ++id)
-    // {
-    //     auto r_int = generate_real(10.0);
-    //     auto gammax = math::Gamma::fgamma<double>(r_int);
-    //     gm_v.emplace_back(gammax);
-    // }
-    // auto gm_arr = math::Gamma::array(gm_v);
+    for (auto id = 0; id < ARR_SIZE; ++id)
+    {
+        auto r_int = generate_real(10.0);
+        auto gammax = math::Gamma::fgamma<double>(r_int);
+        gm_v.emplace_back(gammax);
+    }
+    auto gm_arr = math::Gamma::array(gm_v);
     show(stop_msg);
 }
 
@@ -103,13 +103,13 @@ void math::Math::test_derivative()
     const std::string start_msg = "Starting the derivative implementation test procedure...";
     const std::string stop_msg = "Testing derivative implementation finished succsessfully...";
     show(start_msg);
-    // for (auto id = 0; id < ARR_SIZE; ++id)
-    // {
-    //     auto rnum = generate_real(max_num);
-    //     auto data_set = math::Derivative::generateFunctionArray(special_math_function);
-    //     auto derivs = math::Derivative::Differentiate_Array(data_set);
-    //     auto dx = math::Derivative::Differentiate<double>(special_math_function, rnum);
-    // }
+    for (auto id = 0; id < ARR_SIZE; ++id)
+    {
+        auto rnum = generate_real(max_num);
+        auto data_set = math::Derivative::generateFunctionArray(special_math_function);
+        auto derivs = math::Derivative::Differentiate_Array(data_set);
+        auto dx = math::Derivative::Differentiate<double>(special_math_function, rnum);
+    }
     show(stop_msg);
 }
 

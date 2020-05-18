@@ -24,7 +24,7 @@ static const double pi = 3.141592654;
 
 void generate_random_tests()
 {
-    // auto x = std::make_unique<operations::Trig>(GiveRandomReal(pi));
+    auto x = std::make_unique<operations::Trig>(GiveRandomReal(pi));
 }
 
 void generateTrigTest(uint32_t n_tests)
@@ -34,9 +34,9 @@ void generateTrigTest(uint32_t n_tests)
     std::cout << "\n";
     for (int id = 0; id < n_tests; ++id)
     {
-        // std::cout << "******** TEST " << id << " ********"<< "\n";
+        std::cout << "******** TEST " << id << " ********"<< "\n";
         generate_random_tests();
-        // std::cout << "\n";
+        std::cout << "\n";
     }
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
@@ -53,9 +53,9 @@ void generateOperationsTest(uint32_t n_tests)
     std::cout << "\n";
     for (int id = 0; id < n_tests; ++id)
     {
-        // std::cout << "******** TEST " << id << " ********"<< "\n";
-        // auto x = std::make_unique<operations::Operations>(n_tests);
-        // std::cout << "\n";
+        std::cout << "******** TEST " << id << " ********"<< "\n";
+        auto x = std::make_unique<operations::Operations>(n_tests);
+        std::cout << "\n";
     }
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
