@@ -1,0 +1,1 @@
+add_executable(operations operations_test.cc)

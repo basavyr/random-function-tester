@@ -100,7 +100,7 @@ enum test
 
 void shape_test()
 {
-    auto x = std::make_unique<geometry::Shapes>();
+    // auto x = std::make_unique<geometry::Shapes>();
 }
 
 int main()
@@ -116,7 +116,8 @@ int main()
         std::cout << "********* "
                   << "TEST " << nreps << " *********";
         std::cout << "\n";
-        shape_test();
+        // shape_test();
+        // generate_rectangles();
         std::cout << "\n";
     }
     auto end = std::chrono::high_resolution_clock::now();
